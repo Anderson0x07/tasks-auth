@@ -8,8 +8,11 @@ import tasksRoutes from './routes/tasks.routes.js'
 
 const app = express();
 
+const dev = 'http://localhost:5173'
+const prod = 'https://tasks-app-express.netlify.app'
+
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: prod,
     credentials: true
 }))
 app.use(morgan('dev'))
