@@ -1,7 +1,8 @@
 import app from "./app.js";
+import { PORT } from "./config.js";
 import { connectDB } from "./db.js";
 
 connectDB();
-app.listen(3000);
+app.listen(PORT);
 
-console.log("Server in port", 3000);
+console.log("Server in PORT", PORT);
