@@ -95,9 +95,9 @@ export const profile = async (req, res) => {
 
 export const verifyToken = async (req, res) => {
   console.log("Verify bakcned")
-  console.log(req.cookies)
 
-  const { token } = req.cookies
+  //Token de los headers
+  const token = req.headers.authorization.split(' ')[1]
   console.log("Verify token auth controller")
   console.log(token)
 

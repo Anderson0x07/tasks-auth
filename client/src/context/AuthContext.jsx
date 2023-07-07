@@ -66,8 +66,6 @@ export const AuthProvider = ({ children }) => {
 
         const checkLogin = async () => {
             const cookies = Cookies.get()
-            console.log("COKIESS DE VERIFY")
-            console.log(cookies)
 
             if (!cookies.token) {
                 setIsAuthenticated(false)
@@ -77,6 +75,8 @@ export const AuthProvider = ({ children }) => {
 
             try {
                 const res = await verifyTokenRequest(cookies.token)
+                console.log("se verifica el token")
+                console.log(res)
 
                 if (!res.data) {
                     setIsAuthenticated(false)
@@ -88,7 +88,8 @@ export const AuthProvider = ({ children }) => {
                 setLoading(false)
 
             } catch (error) {
-                console.err(error)
+                console.log("NO VERIFICA TOKEN")
+                console.error(error)
                 setIsAuthenticated(false);
                 setUser(null)
                 setLoading(false)
