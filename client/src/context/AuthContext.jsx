@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await registerRequest(user)
             console.log(res)
+            Cookies.set("token", res.data.token)
             setUser(res.data)
             setIsAuthenticated(true)
         } catch (error) {
@@ -37,7 +38,7 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await loginRequest(user)
             console.log(res)
-            Cookies.set("test", "1234test")
+            Cookies.set("token", res.data.token)
             setUser(res.data)
             setIsAuthenticated(true)
         } catch (error) {
