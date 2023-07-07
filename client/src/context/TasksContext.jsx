@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from 'react'
 import { createTaskRequest, deleteTasksRequest, getTaskRequest, getTasksRequest, updateTaskRequest } from '../api/tasks'
+import Cookies from 'js-cookie'
 
 const TaskContext = createContext()
 
@@ -16,10 +17,11 @@ export const useTasks = () => {
 export const TaskProvider = ({ children }) => {
 
     const [tasks, setTasks] = useState([])
+    const {token} = Cookies.get()
 
     const getTasks = async () => {
         try {
-            const res = await getTasksRequest()
+            const res = await getTasksRequest(token)
             setTasks(res.data)
         } catch (error) {
             console.log(error)
@@ -28,7 +30,7 @@ export const TaskProvider = ({ children }) => {
 
     const createTask = async (task) => {
         try {
-            const res = await createTaskRequest(task)
+            const res = await createTaskRequest(task, token)
             console.log(res)
         } catch (error) {
             console.log(error)
@@ -37,7 +39,7 @@ export const TaskProvider = ({ children }) => {
 
     const deleteTask = async (id) => {
         try {
-            const res = await deleteTasksRequest(id)
+            const res = await deleteTasksRequest(id, token)
 
             if (res.status == 204) setTasks(tasks.filter(task => task._id != id))
         } catch (error) {
@@ -47,7 +49,7 @@ export const TaskProvider = ({ children }) => {
 
     const getTask = async (id) => {
         try {
-            const res = await getTaskRequest(id)
+            const res = await getTaskRequest(id, token)
             return res.data
         } catch (error) {
             console.log(error)
@@ -56,7 +58,7 @@ export const TaskProvider = ({ children }) => {
 
     const updateTask = async (id, task) => {
         try {
-            const res = await updateTaskRequest(id, task)
+            const res = await updateTaskRequest(id, task, token)
         } catch (error) {
             console.log(error)
         }
