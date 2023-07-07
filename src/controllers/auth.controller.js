@@ -95,11 +95,13 @@ export const profile = async (req, res) => {
 
 export const verifyToken = async (req, res) => {
   console.log("Verify bakcned")
-  console.log(req)
+  console.log(req.cookies)
 
   const { token } = req.cookies
+  console.log("Verify token auth controller")
+  console.log(token)
 
-  if (!token) return res.status(401).json({ message: 'Unauthorized' })
+  if (!token) return res.status(401).json({ message: 'Unauthorized: no token' })
 
   jwt.verify(token, TOKEN_SECRET, async (err, user) => {
     if (err) return res.status(401).json({ message: 'Unauthorized' })
