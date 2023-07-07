@@ -25,6 +25,7 @@ export const AuthProvider = ({ children }) => {
     const signUp = async (user) => {
         try {
             const res = await registerRequest(user)
+            console.log(res)
             setUser(res.data)
             setIsAuthenticated(true)
         } catch (error) {
@@ -35,6 +36,8 @@ export const AuthProvider = ({ children }) => {
     const signIn = async (user) => {
         try {
             const res = await loginRequest(user)
+            console.log(res)
+            Cookies.set("test", "1234test")
             setUser(res.data)
             setIsAuthenticated(true)
         } catch (error) {
