@@ -4,7 +4,7 @@ import { Button, Navbar } from 'flowbite-react';
 
 function Nav(props) {
 
-    const urlImage = 'https://raw.githubusercontent.com/Anderson0x07/tasks-auth/client/src/assets/'
+    const urlImage = 'https://raw.githubusercontent.com/Anderson0x07/tasks-auth/main/client/src/assets/'
 
     const { isAuthenticated, user, logout } = useAuth()
 
