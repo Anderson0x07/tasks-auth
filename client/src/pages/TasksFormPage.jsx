@@ -48,21 +48,22 @@ function TasksFormPage() {
     })
 
     return (
-        <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
-            <div className='bg-zinc-800 max-w-md w-full p-10 rounded-md'>
+        <div className='flex h-[calc(100vh-200px)] items-center justify-center'>
+            <div className='dark:bg-zinc-800 dark:text-white border border-black max-w-md w-full p-10 rounded-md'>
+                
                 <form onSubmit={onSubmit}>
                     <label htmlFor="title">Title</label>
                     <input type="text" placeholder='Title' {...register('title')} autoFocus
-                        className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' />
+                        className='w-full dark:bg-zinc-700  px-4 py-2 rounded-md my-2' />
 
                     <label htmlFor="description">Description</label>
                     <textarea rows="3" placeholder='Description' {...register('description')}
-                        className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'>
+                        className='w-full dark:bg-zinc-700  px-4 py-2 rounded-md my-2'>
                     </textarea>
 
                     <label htmlFor="date">Date</label>
                     <input type="date" placeholder='Title' {...register('date')}
-                        className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' />
+                        className='w-full dark:bg-zinc-700  px-4 py-2 rounded-md my-2' />
 
                     <button className='bg-indigo-500 px-3 py-2 rounded-md mt-4'>Save</button>
                 </form>

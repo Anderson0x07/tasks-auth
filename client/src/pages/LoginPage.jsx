@@ -23,9 +23,8 @@ function LoginPage() {
     })
 
     return (
-        <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
-            <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
-
+        <div className='flex h-[calc(100vh-200px)] items-center justify-center'>
+            <div className=" max-w-sm  w-full p-10 rounded-md border border-black dark:text-white dark:bg-zinc-800">
                 {
                     loginErrors.map((err, i) => (
                         <div key={i} className='bg-red-500 p-2 my-2 text-white text-center'>
@@ -38,13 +37,13 @@ function LoginPage() {
 
                 <form onSubmit={onSubmit}>
 
-                    <input type="email" name="email" className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+                    <input type="email" name="email" className='w-full dark:bg-zinc-800 px-4 py-2 rounded-md my-2'
                         placeholder='Email' {...register("email", { required: true })}
                     />
                     {
                         errors.email && <p className='text-red-500'>Email is required</p>
                     }
-                    <input type="password" name="password" className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+                    <input type="password" name="password" className='w-full dark:bg-zinc-800 px-4 py-2 rounded-md my-2'
                         placeholder='Password' {...register("password", { required: true })}
                     />
                     {
