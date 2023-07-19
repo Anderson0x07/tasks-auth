@@ -19,30 +19,30 @@ function App() {
       <TaskProvider>
         <BrowserRouter>
           <Flowbite>
-            <div class=" dark:text-white dark:bg-slate-700">
-              <div class="w-full h-full  mx-auto p-4 md:py-8">
-              <Nav dark={<DarkThemeToggle />}/>
-              
-              <Routes>
-                <Route path='/' element={<HomePage />} />
-                <Route path='/login' element={<LoginPage />} />
-                <Route path='/register' element={<RegisterPage />} />
+            <div className=" dark:text-white dark:bg-slate-700">
+              <div className="w-full h-full  mx-auto p-4 md:py-8">
+                <Nav dark={<DarkThemeToggle />} />
 
-                <Route element={<ProtectedRoutes />}>
-                  <Route path='/tasks' element={<TasksPage />} />
-                  <Route path='/add-task' element={<TasksFormPage />} />
-                  <Route path='/tasks/:id' element={<TasksFormPage />} />
-                  <Route path='/profile' element={<ProfilePage />} />
-                </Route>
-              </Routes>
+                <Routes>
+                  <Route path='/' element={<HomePage />} />
+                  <Route path='/login' element={<LoginPage />} />
+                  <Route path='/register' element={<RegisterPage />} />
+
+                  <Route element={<ProtectedRoutes />}>
+                    <Route path='/tasks' element={<TasksPage />} />
+                    <Route path='/add-task' element={<TasksFormPage />} />
+                    <Route path='/tasks/:id' element={<TasksFormPage />} />
+                    <Route path='/profile' element={<ProfilePage />} />
+                  </Route>
+                </Routes>
               </div>
             </div>
-            <footer className="bg-white shadow dark:bg-gray-900 ">
-              <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-                <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© {new Date().getFullYear()} Tasks Manager By AndersonDev. All Rights Reserved.</span>
-              </div>
-            </footer>
           </Flowbite>
+          <footer className="bg-white shadow dark:bg-gray-900 ">
+            <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+              <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© {new Date().getFullYear()} Tasks Manager By AndersonDev. All Rights Reserved.</span>
+            </div>
+          </footer>
 
         </BrowserRouter>
       </TaskProvider>

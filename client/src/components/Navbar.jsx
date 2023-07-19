@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 import { Button, Navbar } from 'flowbite-react';
 
 function Nav(props) {
 
     const urlImage = 'https://raw.githubusercontent.com/Anderson0x07/tasks-auth/main/client/src/assets/'
+
+    const navigate = useNavigate();
 
     const { isAuthenticated, user, logout } = useAuth()
 
@@ -31,47 +33,35 @@ function Nav(props) {
                     {
                         isAuthenticated ? (
                             <>
-                                <li className="pt-2.5">
+                                <li className="pt-2.5 cursor-pointer">
 
-                                    <Navbar.Link >
+                                    <Navbar.Link onClick={() => { navigate('/tasks') }}>
                                         Welcome {user.username}
                                     </Navbar.Link>
                                 </li>
-                                <li className="pt-2.5">
-
-                                    <Link to='/add-task'>
-                                        <Navbar.Link active>
-                                            Add Task
-                                        </Navbar.Link>
-
-                                    </Link>
+                                <li className="pt-2.5 cursor-pointer">
+                                    <Navbar.Link active onClick={() => { navigate('/add-task') }}>
+                                        Add Task
+                                    </Navbar.Link>
                                 </li>
-                                <li className="pt-2.5">
-
-                                    <Link to='/' onClick={() => logout()}>
-                                        <Navbar.Link >
-                                            Logout
-                                        </Navbar.Link>
-                                    </Link>
+                                <li className="pt-2.5 cursor-pointer">
+                                    <Navbar.Link onClick={() => logout()}>
+                                        Logout
+                                    </Navbar.Link>
                                 </li>
                             </>
                         ) : (
                             <>
-                                <li className="pt-2.5">
-                                    <Link to='/login' >
-                                        <Navbar.Link active >
-                                            Login
-                                        </Navbar.Link>
-                                    </Link>
+                                <li className="pt-2.5 cursor-pointer">
+                                    <Navbar.Link active onClick={() => { navigate('/login') }}>
+                                        Login
+                                    </Navbar.Link>
                                 </li>
-                                <li className="pt-2.5">
+                                <li className="pt-2.5 cursor-pointer">
 
-                                    <Link to='/register'>
-                                        <Navbar.Link >
-
-                                            Register
-                                        </Navbar.Link>
-                                    </Link>
+                                    <Navbar.Link onClick={() => { navigate('/register') }}>
+                                        Register
+                                    </Navbar.Link>
                                 </li>
 
 

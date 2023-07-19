@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const DATABASE = 'merndb'
-const password = process.env.PASSWORD || 'px6Czt8PPTYGUwi1';
+const password = process.env.PASSWORD;
 const MONGODB_URI = `mongodb+srv://Anderson0x07:${password}@clustertest.xzrg9bm.mongodb.net/${DATABASE}?retryWrites=true&w=majority`;
 
 export const connectDB = async () => {
